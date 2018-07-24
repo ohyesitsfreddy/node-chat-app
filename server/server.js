@@ -25,15 +25,19 @@ io.on('connection', (socket) => {
     //     createAt: 123
     // });
 
-    socket.emit('newMessage', {
-        from: 'freddy',
-        text: 'Hey there its the server speaking',
-        createdAt: 1234
-    });
+    // socket.emit('newMessage', {
+    //     from: 'freddy',
+    //     text: 'Hey there its the server speaking',
+    //     createdAt: 1234
+    // });
 
-    socket.on('createMessage', (newMessage) => {
-        let date = new Date().getTime();
-        console.log('createMessage', newMessage, date);
+    socket.on('createMessage', (message) => {
+        console.log('createMessage', message);
+        io.emit('newMessage', {
+            from: message.from,
+            text: message.text,
+            createdAt: new Date().getTime()
+        });
     });
 
     // socket.on('createEmail', (newEmail) => {

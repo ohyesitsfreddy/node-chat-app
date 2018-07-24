@@ -7,10 +7,10 @@ socket.on('connect', function () {
     //     to: 'jen@example.com',
     //     text: 'Hey. this is andrew'
     //     });
-    socket.emit('createMessage', {
-        to: 'Freddy',
-        text: 'Hello im the browser'
-        });
+    // socket.emit('createMessage', {
+    //     to: 'Freddy',
+    //     text: 'Hello im the browser'
+    //     });
 });
 
  socket.on('newMessage', function (message) {
